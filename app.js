@@ -121,6 +121,13 @@ app.use("/", userRouter);
 //     res.send("successful test");
 // });
 
+//test the code using ci/cd
+app.get("/test",async(req,res)=>{
+    res.json({
+        msg:"test was successful"
+    });
+})
+
 // page not found error
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not Found"));
@@ -133,11 +140,6 @@ app.use((err, req, res, next) => {
     // res.status(statusCode).send(message);
 });
 
-app.get("/test",async(req,res)=>{
-    res.json({
-        msg:"test was successful"
-    })
-})
 
 app.listen(8080, "0.0.0.0", () => {
     console.log("app is listening on all network interfaces");
