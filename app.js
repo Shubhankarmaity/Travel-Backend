@@ -133,6 +133,12 @@ app.use((err, req, res, next) => {
     // res.status(statusCode).send(message);
 });
 
+app.get("/test",async(req,res)=>{
+    res.json({
+        msg:"test was successful"
+    })
+})
+
 app.listen(8080, "0.0.0.0", () => {
     console.log("app is listening on all network interfaces");
 });
