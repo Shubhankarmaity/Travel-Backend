@@ -124,7 +124,7 @@ app.use("/", userRouter);
 //test the code using ci/cd
 app.get("/test",async(req,res)=>{
     res.json({
-        msg:"UPDATE: test was successful"
+        msg:"FINAL UPDATE: test was successful"
     });
 })
 
