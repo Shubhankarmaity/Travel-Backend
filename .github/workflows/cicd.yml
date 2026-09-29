@@ -24,6 +24,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: |
+        cat > .env << 'EOF'
+        CLOUD_NAME=${{ secrets.CLOUD_NAME }}
+        CLOUD_API_KEY=${{ secrets.CLOUD_API_KEY }}
+        CLOUD_API_SERECT=${{ secrets.CLOUD_API_SERECT }}
+        MAP_TOKEN=${{ secrets.MAP_TOKEN }}
+        ATLASTDB_URL=${{ secrets.ATLASTDB_URL }}
+        SECRET=${{ secrets.SECRET }}
+        EOF
     - run: npm ci
     - run: npm run build --if-present
     - run: sudo pm2 restart backend
